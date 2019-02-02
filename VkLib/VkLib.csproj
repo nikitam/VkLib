@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE0F2C9F-F34A-4E2C-B097-EB93D8C62BEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VkLib</RootNamespace>
+    <AssemblyName>VkLib</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstraction\BaseExecuteSystem.cs" />
+    <Compile Include="Abstraction\IVkMethod.cs" />
+    <Compile Include="Abstraction\ByAttributeExecuteSystem.cs" />
+    <Compile Include="Abstraction\ExecuteEnvironment.cs" />
+    <Compile Include="Abstraction\IAuthenticationProvider.cs" />
+    <Compile Include="Abstraction\Visitors\BaseMethodsVisitor.cs" />
+    <Compile Include="Abstraction\Visitors\IBoardMethodsVisitor.cs" />
+    <Compile Include="Abstraction\Visitors\IFriendMethodsVisitor.cs" />
+    <Compile Include="Abstraction\Visitors\IGroupMethodsVisitor.cs" />
+    <Compile Include="Abstraction\IExecuteSystem.cs" />
+    <Compile Include="Abstraction\Domain\IVkObjectVisitor.cs" />
+    <Compile Include="Abstraction\Domain\IVkObject.cs" />
+    <Compile Include="Abstraction\Visitors\IMessageMethodsVisitor.cs" />
+    <Compile Include="Abstraction\Visitors\IPhotoMethodsVisitor.cs" />
+    <Compile Include="Abstraction\Visitors\IUserMethodsVisitor.cs" />
+    <Compile Include="Abstraction\VkMethodVisitor.cs" />
+    <Compile Include="Api\Board.cs" />
+    <Compile Include="Api\Friends.cs" />
+    <Compile Include="Api\Groups.cs" />
+    <Compile Include="Api\Users.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Methods\Board\AddComment.cs" />
+    <Compile Include="Methods\Board\AddTopic.cs" />
+    <Compile Include="Methods\Friends\Add.cs" />
+    <Compile Include="Methods\Friends\Get.cs" />
+    <Compile Include="Methods\Groups\Get.cs" />
+    <Compile Include="Methods\Groups\IsMember.cs" />
+    <Compile Include="Methods\Messages\Send.cs" />
+    <Compile Include="Methods\Photos\CreateAlbum.cs" />
+    <Compile Include="Methods\Photos\CreateComment.cs" />
+    <Compile Include="Methods\Photos\DeleteAlbum.cs" />
+    <Compile Include="Methods\Photos\Get.cs" />
+    <Compile Include="Methods\Photos\GetAlbums.cs" />
+    <Compile Include="Methods\Photos\GetAlbumsCount.cs" />
+    <Compile Include="Methods\Photos\GetComments.cs" />
+    <Compile Include="Methods\Photos\GetUploadServer.cs" />
+    <Compile Include="Methods\Photos\Save.cs" />
+    <Compile Include="Methods\Users\Get.cs" />
+    <Compile Include="Objects\Album.cs" />
+    <Compile Include="Objects\City.cs" />
+    <Compile Include="Objects\Comment.cs" />
+    <Compile Include="Objects\Error.cs" />
+    <Compile Include="Objects\Group.cs" />
+    <Compile Include="Objects\Message.cs" />
+    <Compile Include="Objects\Photo.cs" />
+    <Compile Include="Objects\ServiceObjects\ServiceObject.cs" />
+    <Compile Include="Objects\ServiceObjects\UploadServerData.cs" />
+    <Compile Include="Objects\User.cs" />
+    <Compile Include="Objects\VkPrincipal.cs" />
+    <Compile Include="Objects\VkObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Realization\Http\HttpExecuteSystem.cs" />
+    <Compile Include="Realization\Visitors\JsonBoardMethodsParser.cs" />
+    <Compile Include="Realization\Visitors\JsonFriendMethodsParser.cs" />
+    <Compile Include="Realization\Visitors\JsonUserMethodsParser.cs" />
+    <Compile Include="Realization\Visitors\JsonGroupMethodsParser.cs" />
+    <Compile Include="Realization\Visitors\JsonMessageMethodsVisitor.cs" />
+    <Compile Include="Realization\JsonMethodResponseParser.cs" />
+    <Compile Include="Realization\Visitors\JsonPhotoMethodsParser.cs" />
+    <Compile Include="Realization\ImpersonateAuthProvider.cs" />
+    <Compile Include="Realization\JsonVkObjectParser.cs" />
+    <Compile Include="Realization\SimpleAuthProvider.cs" />
+    <Compile Include="Realization\SimpleExecuteEnvironment.cs" />
+    <Compile Include="Realization\SimpleExecuteSystem.cs" />
+    <Compile Include="Api\Messages.cs" />
+    <Compile Include="Api\Photos.cs" />
+    <Compile Include="VkParamAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
